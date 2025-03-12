@@ -104,6 +104,10 @@ h1, h2, h3{
     color: #FFF;
 }
 
+h2{
+    text-decoration: underline;
+}
+
 .container{
     max-width: 1300px;
     padding: 20px;
@@ -242,6 +246,11 @@ section#projet{
     margin-top: 25px;
 }
 
+.projet .btn:hover,
+.projet .btn:focus{
+    background: #FFF;
+}
+
 section.contact .colonne{
     display: flex;
     flex-direction: column;
@@ -309,6 +318,15 @@ section.projet-single .schema > div{
     margin: auto;
 }
 
+footer .mail{
+    padding-bottom: 30px;
+}
+
+footer .contact,
+footer .reseaux{
+    width: 50%;
+    text-align: center;
+}
 
 
 /* FONCTION JS, NE PAS TOUCHER*/

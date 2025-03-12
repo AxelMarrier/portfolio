@@ -1,5 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
 
+    AOS.init();
+
     const header = document.querySelector('header');
     const section = document.querySelector('section.hero');
     const container = document.querySelector('section.hero .container');
@@ -56,9 +58,9 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     let i = 0
-    let color = ["#F00","#0D0", "#c700ff", "#000"]
+    let color = ["#130d31"]
     document.querySelectorAll('.techniques .swiper-slide .block').forEach(element => {
-        element.style.background = color[i]
+        element.style.background = color[0]
         i = i + 1
         if (i >= 4){
             i = 0
@@ -66,7 +68,7 @@ document.addEventListener("DOMContentLoaded", function () {
     })
 
     document.querySelectorAll('.soft .swiper-slide .block').forEach(element => {
-        element.style.background = color[i]
+        element.style.background = color[0]
         i = i + 1
         if (i >= 4){
             i = 0
