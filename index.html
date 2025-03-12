@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon PORTFOLIO</title>
+    <link rel="stylesheet" type="text/css" href="./style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="script.js"></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="image">
+                <a class="btn-image" href="#">
+                    <img src="./images/placeholder.png" alt="image">
+                </a>
+            </div>
+            
+            <div class="boutons">
+                <a href="#" class="btn">Accueil</a>
+                <a href="#" class="btn">Compétences</a>
+                <a href="#projet" class="btn">Projets</a>
+                <a href="#" class="btn">Contact</a>
+                <a target="_blank" href="CV_Axel_MARRIER.pdf" class="btn btn-cv">Mon CV</a>
+            </div>
+        </div>
+        
+    </header>
+    <section class="hero">
+        <div class="container">
+            <div class="texte">
+                <h1 class="titre">Axel MARRIER</h1>
+                <p class="sous-titre">Étudiant en informatique</p>
+                <div class="slider"></div>
+            </div>
+            <a href="#scroll" class="fleche">
+                <img src="./images/fleche.png" alt="arrow">
+            </a>
+        </div>
+    </section>
+
+    <section id="competences" class="competences">
+        <div class="container">        
+            <h2>
+                Mes compétences
+            </h2>
+
+                <h3>
+                    Les technologies que je maitrises
+                </h3>
+
+                <div class="swiper techniques">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="block">
+                                <p>C++</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="block">
+                                <p>HTML</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="block">
+                                <p>CSS</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="block">
+                                <p>JavaScript</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="block">
+                                <p>PHP</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="block">
+                                <p>Java</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="block">
+                                <p>LUA</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="block">
+                                <p>SQL</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                </div>
+                <script>
+                    const swiperCompTechnique = new Swiper(".swiper.techniques", {
+                        slidesPerView: 3,
+                        spaceBetween: 30,
+                        pagination: {
+                            el: ".swiper-pagination",
+                            dynamicBullets: true,
+                        },
+                        navigation: {
+                            nextEl: ".swiper-button-next",
+                            prevEl: ".swiper-button-prev",
+                        }
+                    });
+                </script>   
+
+
+                <h3>
+                    Mes soft & hard skills
+                </h3>
+                <div class="swiper soft">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="block">
+                                <p>Anglais (Certificat de Cambridge)</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="block">
+                                <p>Espagnol</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="block">
+                                <p>Algorithmie</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="block">
+                                <p>Mathématique</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="block">
+                                <p>Communication</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="block">
+                                <p>Gestion d'équipe</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="block">
+                                <p>Refactoring</p>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="block">
+                                <p>Patrons de conceptions</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                </div>
+                <script>
+                    const swiperCompSoft = new Swiper(".swiper.soft", {
+                        slidesPerView: 3,
+                        spaceBetween: 30,
+                        pagination: {
+                            el: ".swiper-pagination",
+                            dynamicBullets: true,
+                        },
+                        navigation: {
+                            nextEl: ".swiper-button-next",
+                            prevEl: ".swiper-button-prev",
+                        }
+                    });
+                </script>   
+            </div>
+        </div>
+    </section>
+
+    <section id="projet">
+        <div class="container">
+            <h2 class="titre-projet">
+                Mes projets
+            </h2>
+        </div>
+        <div class="projet projet-1">
+            <div class="container">
+                <div class="colonnes">
+                    <div class="colonne-1">
+                        <img src="./images/render3d.jpg" alt="render3d">
+                    </div>
+                    <div class="colonne-2">
+                        <h3>Moteur de rendu 3D en Python</h3>
+                        <p class="description-courte">Pendant l'hiver 2024-2025, j'ai essayé de créer un programme python capable d'afficher des objets en 3d et voici le résultat obtenu ! Une fenêtre tkinter capable de lire des fichiers .obj, de les afficher et de les faires tourner sur eux-même avec un taux de rafraichissement de 20 images par secondes.</p>
+                        <a href="pages/3d.html" class="btn">Plus d'info</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="projet projet-2">
+            <div class="container">
+                <div class="colonnes">
+                    <div class="colonne-1">
+                        <h3>Site d'hébergement et de compression vidéo</h3>
+                        <p class="description-courte">Durant ma troisième année, mon projet de fin d'année a été de réalisé pour un BTS d'audio visual, un site capable d'héberger toutes les vidéos qui sont mis en ligne sur leur serveurs NAS. Cependant les vidéos devait être compressé avant d'être disponible sur le site.</p>
+                        <a href="pages/3d.html" class="btn">Plus d'info</a>
+                    </div>
+                    <div class="colonne-2">
+                        <img src="./images/btsplay.png" alt="render3d">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="contact">
+        <div class="container">
+            <div class="top-footer">
+                <div class="colonnes">
+                    <div class="contact">
+                        <div class="mail">
+                            <a href="mailto:marrieraxel@gmail.com" class="btn">marrieraxel@gmail.com</a>
+                        </div>
+                        <div class="tel">
+                            <a href="tel:0778789360" class="btn">07 78 78 93 60</a>
+                        </div>
+                    </div>
+                    <div class="reseaux">
+                        <div class="github">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+

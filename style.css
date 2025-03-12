@@ -1,0 +1,330 @@
+:root{
+    --fontTitle: Heebo;
+    --fontText: Roboto;
+    --primaryColor: #000;
+    --bgColor: rgb(50 50 105);
+    --bgColor2: rgb(38 38 85);
+}
+
+body{
+    font-family: var(--fontText);
+    margin: 0;
+}
+
+.btn{
+    text-decoration: none;
+    color: var(--secondaryColor);
+    background: var(--primaryColor);
+    border-radius: 20px;
+    padding: 10px 20px;
+    transition: all 0.2s ease;
+    border: 1px solid transparent;
+    color: #fff;
+}
+
+.btn:hover,
+.btn:focus{
+    color: var(--primaryColor);
+    background-color: var(--secondaryColor);
+    border: 1px solid var(--primaryColor);
+    transform: scale(1.05);
+}
+
+img{
+    height: auto;
+    width: 100%;
+}
+
+.colonnes{
+    display: flex;
+}
+
+p{
+ margin: 0;
+}
+/* #region HEADER */
+
+header{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    -webkit-box-shadow: 0px 8px 15px 5px rgba(0,0,0,0.75); 
+    box-shadow: 0px 8px 15px 5px rgba(0,0,0,0.75);
+    height: auto;
+    background: #fff;
+    z-index: 11;
+}
+
+header .container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    transition: all 0.2s ease;
+}
+
+header .container.scrolled{
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+header .container .image{
+    height: 50px;
+    width: 50px;
+    transition: all 0.2s ease;
+}
+
+header .container .image:hover,
+header .container .image:focus{
+    transform: scale(1.1);
+}
+
+
+header .container .boutons{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.btn-cv{
+    background: #f00;
+}
+
+.btn-cv:hover,
+.btn-cv:focus{
+    color: #f00;
+    border: 1px solid #f00;
+}
+
+/* #endregion HEADER */
+
+h1, h2, h3{
+    font-family: var(--fontTitle);
+    color: #FFF;
+}
+
+.container{
+    max-width: 1300px;
+    padding: 20px;
+    margin: auto;
+}
+
+section.hero{
+    align-content: center;
+    text-align: center;
+    background-image: url(./images/bg.webp);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-blend-mode: multiply;
+    background-color: #AAA;
+    color: #99F;
+}
+
+section.hero .container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    z-index: 1;
+}
+
+section.hero .fleche img{
+    width: 35px;
+    height: 35px;
+}
+
+section.competences{
+    background: var(--bgColor);
+}
+
+section.competences h2,
+section.competences h3{
+    color: #FFF;
+}
+
+section.competences .block{
+    height: 300px;
+    background: red;
+    text-align: center;
+    color: #FFF;
+    font-size: 3em;
+    align-content: center;
+    border-radius: 10px;
+    position: relative;
+    margin-top: 20px;
+    transition: all 0.2s ease;
+}
+
+section.competences .block:hover{
+    transform: translateY(-20px);
+}
+
+section .texte{
+    width: 60%;
+    margin: 0 auto 0 auto;
+}
+
+section.hero .titre{
+    font-size: 3em;
+    font-weight: 700;
+    color: #FFF
+}
+
+section.hero .sous-titre{
+    color: #FFF;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #FFF;
+}
+
+section.hero .fleche{
+    width: 50px;
+    height: 50px;
+    transform: rotate(90deg);
+    background: rgba(0,0,0,0.75);
+    padding: 10px;
+    border-radius: 40px;
+    z-index: 0;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+section.hero .fleche:hover,
+section.hero .fleche:focus{
+    transform: rotate(90deg) translateX(10px);
+}
+
+section#projet{
+    background: var(--bgColor);
+}
+
+.projet-1{
+    background: var(--bgColor);
+    color: #FFF;
+}
+
+.projet-2{
+    background: var(--bgColor2);
+    color: #FFF;
+}
+
+.projet .colonnes{
+    gap: 60px;
+}
+
+.projet .colonne-1,
+.projet .colonne-2{
+    object-fit: contain;
+    width: 100%;
+    align-content: center;
+}
+
+.projet h2{
+    color: #FFF;
+}
+
+.projet .colonne-2{
+    margin: 10px 0;
+}
+
+.projet img{
+    width: 100%;
+    height: auto;
+}
+
+.projet .btn{
+    margin: auto;
+    display: block;
+    width: fit-content;
+    position: relative;
+    margin-top: 25px;
+}
+
+section.contact .colonne{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+
+section.contact .titre{
+    text-align: center;
+    font-size: 3em;
+    font-weight: 700;
+    color: var(--primaryColor);
+}
+
+section.projet-single{
+    padding-top: 90px;
+    background: var(--bgColor);
+}
+
+section.projet-single .colonnes{
+    gap: 50px;
+    margin-bottom: 60px;
+}
+
+section.projet-single p,
+ul{
+    color: #FFF;
+    margin: 0;
+}
+
+section.projet-single .images{
+    width: auto;
+    height: calc(100vh - 120px);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    
+}
+
+section.projet-single .images img{
+    object-fit: contain;
+    width: auto;
+    height: 100%;
+}
+
+section.projet-single h1,
+section.projet-single h2,
+section.projet-single h3{
+    color: #FFF;
+}
+
+section.projet-single h1{
+    text-align: center;
+
+}
+
+section.projet-single .schema{
+    display: flex;
+    margin-top: 20px;
+    gap: 20px;
+    justify-content: center;
+}
+
+section.projet-single .schema > div{
+    margin: auto;
+}
+
+
+
+/* FONCTION JS, NE PAS TOUCHER*/
+.outer{
+    display: flex;
+    justify-content: center;
+    width: 160px;
+    border-radius: 100px 100px 0 0;
+    height: 80px;
+    position: absolute;
+}
+
+.inner{
+    background: var(--bgColor);
+    width: 75%;
+    border-radius: 100px 100px 0 0;
+    margin-top: 20px;
+}
+

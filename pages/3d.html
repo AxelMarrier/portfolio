@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projection 3D</title>
+    <link rel="stylesheet" type="text/css" href="../style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="../script.js"></script>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="image">
+                <a class="btn-image" href="../index.html">
+                    <img src="../images/placeholder.png" alt="image">
+                </a>
+            </div>
+            
+            <div class="boutons">
+                <a href=".." class="btn">Accueil</a>
+                <a href="#" class="btn">Compétences</a>
+                <a href="#" class="btn">Projets</a>
+                <a href="#" class="btn">Contact</a>
+                <a target="_blank" href="CV_Axel_MARRIER.pdf" class="btn btn-cv">Mon CV</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="projet-single">
+        <div class="container"> 
+            <div class="images">
+                <img src="../images/monkey.gif" alt="">
+            </div>
+
+            <h1>
+                Projection 3D Python
+            </h1>
+
+            <div class="explication">
+                <h2>
+                    Explication
+                </h2>
+                <hr>
+                <div class="colonnes">
+                    <div class="colonne-1">
+                        <p>
+                            Pendant l'hiver 2024-2025, j'ai essayé de créer un programme Python capable d'afficher des objets en 3D. Voici le résultat obtenu : une fenêtre Tkinter capable de lire des fichiers .obj, d'afficher les objets et de les faire tourner sur eux-mêmes avec un taux de rafraîchissement de 20 images par seconde.
+                            <br/><br/>
+                            Pour y parvenir, chaque face de l'objet doit être composée de triangles, car toute forme peut être représentée par un ensemble de triangles. J'ai donc décidé de créer une classe Triangle, composée de trois points. Chaque point est lui-même défini par trois entiers correspondant aux coordonnées X, Y et Z.
+                            <br/><br/>
+                            La méthode classique pour afficher des objets en 3D consiste à faire en sorte que plus un point a une coordonnée Z élevée, plus il se rapproche du point de fuite de la fenêtre (dans notre cas, le centre de l'écran). Pour obtenir cet effet, deux approches sont possibles :
+                        </p>
+                    </div>
+                    <div class="colonne-2">
+                        <ul>
+                            <li>Utiliser une perspective faible (en appliquant le théorème de Thalès).</li>
+                            <li>Employer une matrice de projection, qui permet de gérer la perspective de manière plus efficace.</li>
+                        </ul>
+                        <br/>
+                        <p>
+                            J'ai personnellement choisi la matrice de projection, car elle me permet d'effectuer toutes les transformations et rotations en une seule multiplication matricielle, réduisant ainsi le nombre de calculs nécessaires.
+                            <br/><br/>
+                            Pour n'afficher que les faces tournées vers la caméra, j'ai utilisé le produit scalaire entre le vecteur de la caméra et le vecteur normal des triangles. Les normales sont obtenues en effectuant un produit vectoriel sur les triangles. Si le produit scalaire est inférieur à 0, cela signifie que le triangle fait face à la caméra et doit être affiché.
+                        </p>
+                    </div>
+                </div>
+                
+            </div>
+
+            <div class="competences">
+
+            
+                <h2>
+                    Compétences
+                </h2>
+                <hr>
+                <p>
+                    Mathématique : La plus grande difficulté de ce projet a été les calculs a réalisé car j'avais de grosses lacunes dans les vecteurs et les matrices, en plus de m'avoir fait progresser dans ce domaine, faire ce projet m'a montré que j'ai les capacitées d'apprendre de nouveaux conceptes par moi-mêmes
+                    <br/><br/>  
+                    Algorithmique : Au début le projet était très fonctionnel mais il était extrèmement couteux en ressources et ma machine avait du mal a voir un taux de raffraichissement constant. Donc j'ai été forcé à ordonner mon code et à l'optimiser en évitant les calculs inutiles.
+                </p>
+
+                <div class="schema">
+                    <div>
+                        <h3>
+                            Mathématique
+                        </h3>
+                        <div class="cercle" data-colors='["#5858B7", "#3838EC", "#23286D"]' data-percents='["100%", "65%", "20%"]'></div>
+                    </div>
+
+                    <div>
+                        <h3>
+                            Algorithmique
+                        </h3>
+                        <div class="cercle" data-colors='["#5858B7  ", "#3838EC", "#23286D"]' data-percents='["100%", "50%", "30%"]'></div>
+                    </div>
+
+
+                    
+                </div>
+            </div>
+
+            <a class="btn" href="https://github.com/AxelMarrier/3dPython">Github du projet</a>
+        </div>
+    </section>
+
+</body>
+</html>
