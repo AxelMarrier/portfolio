@@ -108,10 +108,18 @@ h2{
     text-decoration: underline;
 }
 
+h3{
+    margin-top: 50px;
+}
+
 .container{
     max-width: 1300px;
     padding: 20px;
     margin: auto;
+}
+
+.swiper-slide{
+    color: #130d31;
 }
 
 section.hero{
@@ -149,7 +157,7 @@ section.competences h3{
 
 section.competences .block{
     height: 300px;
-    background: red;
+    background: #130d31;
     text-align: center;
     color: #FFF;
     font-size: 3em;
@@ -162,6 +170,15 @@ section.competences .block{
 
 section.competences .block:hover{
     transform: translateY(-20px);
+}
+
+section.competences .image-container{
+    height: 60%;
+}
+
+section.competences .image-container img{
+    object-fit: contain;
+    height: 100%;
 }
 
 section .texte{
