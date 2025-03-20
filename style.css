@@ -281,58 +281,75 @@ section.contact .titre{
     color: var(--primaryColor);
 }
 
-section.projet-single{
+/* Project page styles */
+.projet-single {
     padding-top: 90px;
     background: var(--bgColor);
 }
 
-section.projet-single .colonnes{
-    gap: 50px;
-    margin-bottom: 60px;
-}
-
-section.projet-single p,
-ul{
-    color: #FFF;
-    margin: 0;
-}
-
-section.projet-single .images{
+.projet-single .images {
     width: auto;
     height: calc(100vh - 120px);
     position: relative;
     overflow: hidden;
     display: flex;
     justify-content: center;
-    
+    margin-bottom: 2rem;
 }
 
-section.projet-single .images img{
+.projet-single .images img {
     object-fit: contain;
     width: auto;
     height: 100%;
 }
 
-section.projet-single h1,
-section.projet-single h2,
-section.projet-single h3{
-    color: #FFF;
+.explication, .competences {
+    margin-bottom: 3rem;
 }
 
-section.projet-single h1{
-    text-align: center;
-
-}
-
-section.projet-single .schema{
+.colonnes {
     display: flex;
-    margin-top: 20px;
-    gap: 20px;
+    gap: 50px;
+    margin-bottom: 2rem;
+}
+
+.colonne-1, .colonne-2 {
+    flex: 1;
+}
+
+/* Skill visualization */
+.schema {
+    display: flex;
+    margin-top: 2rem;
+    gap: 3rem;
     justify-content: center;
 }
 
-section.projet-single .schema > div{
-    margin: auto;
+.schema > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.cercle {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: conic-gradient(
+        #5858B7 0% 20%,
+        #3838EC 20% 70%,
+        #23286D 70% 100%
+    );
+    margin-top: 1rem;
+}
+
+/* Project link button */
+.projet-single .btn {
+    margin: 2rem auto;
+    display: block;
+    width: fit-content;
+    position: relative;
 }
 
 footer .mail{
@@ -363,3 +380,25 @@ footer .reseaux{
     margin-top: 20px;
 }
 
+/* Responsive design */
+@media (max-width: 768px) {
+    .colonnes {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    
+    .schema {
+        flex-direction: column;
+        gap: 2rem;
+    }
+    
+    header .boutons {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    
+    .projet-single .images {
+        height: auto;
+        max-height: 50vh;
+    }
+}
