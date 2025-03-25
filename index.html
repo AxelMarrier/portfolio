@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Portfolio</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script
+			  src="https://code.jquery.com/jquery-3.7.1.js"
+			  integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+			  crossorigin="anonymous"></script>
+    <style>
+        /* Variables pour la charte graphique */
+        :root {
+            --dark-gray: #1a1a1a;
+            --white: #ffffff;
+            --light-gray: #f5f5f5;
+            --accent: #333333;
+        }
+
+        /* Reset et styles généraux */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--dark-gray);
+            color: var(--white);
+            line-height: 1.6;
+        }
+
+        /* Header fixe */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(26, 26, 26, 0.95);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .logo {
+            height: 50px;
+            width: auto;
+            border-radius: 100%;
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .nav-button {
+            background-color: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            text-decoration: none;
+        }
+
+        .nav-button:hover {
+            background-color: var(--white);
+            color: var(--dark-gray);
+        }
+
+        /* Section Hero */
+        .hero {
+            height: 100vh;
+            background-image: url('./images/bg.webp');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(26, 26, 26, 0.7);
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 1;
+            max-width: 800px;
+            padding: 2rem;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            letter-spacing: 2px;
+        }
+
+        .hero-content p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Sections communes */
+        section {
+            padding: 5rem 10%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2.5rem;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background-color: var(--white);
+        }
+
+        /* Swiper styles */
+        .swiper-wrapper{
+            height: calc(100% - 10px);
+        }
+
+        .swiper {
+            width: 100%;
+            height: 300px;
+            margin-bottom: 4rem;
+        }
+
+        .swiper-slide {
+            background-color: var(--accent);
+            border-radius: 10px;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            transition: transform 0.3s ease;
+            margin-top: 10px;
+        }
+
+        .swiper-slide:hover {
+            transform: translateY(-10px);
+        }
+
+        .swiper-slide h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .swiper-slide p {
+            font-size: 1rem;
+            color: var(--light-gray);
+        }
+
+        .swiper-slide img {
+            max-width: 80px;
+            height: auto;
+            margin-bottom: 1rem;
+        }
+
+        .swiper-pagination-bullet {
+            background-color: var(--white);
+        }
+
+        /* Projets */
+        .project-slide {
+            height: 400px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        .project-slide::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 50%;
+            background: linear-gradient(to top, rgba(26, 26, 26, 1), rgba(26, 26, 26, 0));
+        }
+
+        .project-info {
+            z-index: 1;
+            text-align: center;
+            background: var(--accent);
+            border-radius: 10px;
+            margin: 25px 0;
+            padding: 15px 20px;
+        }
+
+        .project-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-info p {
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-info p.explication {
+            display: none;
+        }
+
+        .project-link {
+            display: inline-block;
+            background-color: var(--white);
+            color: var(--dark-gray);
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: 1px solid var(--white);
+        }
+
+        .project-link:hover {
+            background-color: var(--dark-gray);
+            color: var(--white);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--accent);
+            padding: 2rem 10%;
+            text-align: center;
+        }
+
+        footer p {
+            margin-bottom: 1rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .social-link {
+            color: var(--white);
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-link:hover {
+            color: var(--light-gray);
+        }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .nav-buttons {
+                gap: 0.5rem;
+            }
+            
+            .nav-button {
+                padding: 0.4rem 1rem;
+                font-size: 0.9rem;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-content p {
+                font-size: 1.2rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            section {
+                padding: 4rem 5%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                flex-direction: column;
+                padding: 1rem;
+            }
+            
+            .logo {
+                margin-bottom: 1rem;
+            }
+            
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+            
+            .swiper {
+                height: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header fixe -->
+    <header>
+        <img src="./images/photo.jpg" alt="Logo" class="logo">
+        <div class="nav-buttons">
+            <button class="nav-button">Accueil</button>
+            <button class="nav-button">Compétences</button>
+            <button class="nav-button">Projets</button>
+            <a href="CV_Axel_MARRIER.pdf" target="_blank" class="nav-button">CV</a>
+        </div>
+    </header>
+
+    <!-- Section Hero -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Axel Marrier</h1>
+            <p>Etudiant en BUT d'informatique</p>
+        </div>
+    </section>
+
+    <!-- Section Langages -->
+    <section id="langages">
+        <h2 class="section-title">Langages</h2>
+        <div class="swiper langages-swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img src="./images/c.png" alt="C">
+                    <h3>C</h3>
+                    <p>Langage de programmation bas niveau</p>
+                </div>
+                <div class="swiper-slide">
+                    <img src="./images/cpp.png" alt="C++">
+                    <h3>C++</h3>
+                    <p>Programmation orientée objet</p>
+                </div>
+                <div class="swiper-slide">
+                    <img src="./images/java.png" alt="Java">
+                    <h3>Java</h3>
+                    <p>Applications multiplateformes</p>
+                </div>
+                <div class="swiper-slide">
+                    <img src="./images/python.png" alt="Python">
+                    <h3>Python</h3>
+                    <p>Programmation polyvalente et IA</p>
+                </div>
+                <div class="swiper-slide">
+                    <img src="./images/bash.png" alt="Bash">
+                    <h3>Bash</h3>
+                    <p>Automatisation et scripts shell</p>
+                </div>
+                <div class="swiper-slide">
+                    <img src="./images/lua.png" alt="Lua">
+                    <h3>Lua</h3>
+                    <p>Scripts embarqués et jeux vidéo</p>
+                </div>
+                <div class="swiper-slide">
+                    <img src="./images/html.png" alt="HTML">
+                    <h3>HTML5</h3>
+                    <p>Structure et sémantique web</p>
+                </div>
+                <div class="swiper-slide">
+                    <img src="./images/css.png" alt="CSS">
+                    <h3>CSS3</h3>
+                    <p>Styles et mise en page responsive</p>
+                </div>
+                <div class="swiper-slide">
+                    <img src="./images/js.png" alt="JavaScript">
+                    <h3>JavaScript</h3>
+                    <p>Interactivité et programmation client</p>
+                </div>
+                <div class="swiper-slide">
+                    <img src="./images/php.png" alt="PHP">
+                    <h3>PHP</h3>
+                    <p>Développement back-end</p>
+                </div>
+                <div class="swiper-slide">
+                    <img src="./images/sql.png" alt="SQL">
+                    <h3>SQL</h3>
+                    <p>Gestion de base de données</p>
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </section>
+
+    <!-- Section Soft Skills -->
+    <section id="soft-skills">
+        <h2 class="section-title">Soft Skills</h2>
+        <div class="swiper soft-skills-swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img src="./images/communication.png" alt="Communication">
+                    <h3>Communication</h3>
+                    <p>Capacité à exprimer clairement des idées complexes</p>
+                </div>
+                <div class="swiper-slide">
+                    <img src="./images/equipe.png" alt="Travail d'équipe">
+                    <h3>Travail d'équipe</h3>
+                    <p>Collaboration efficace avec différents profils</p>
+                </div>
+                <div class="swiper-slide">
+                    <img src="./images/adapt.png" alt="Adaptabilité">
+                    <h3>Adaptabilité</h3>
+                    <p>Capacité à s'ajuster rapidement aux nouvelles situations</p>
+                </div>
+                <div class="swiper-slide">
+                    <img src="./images/solve.png" alt="Résolution de problèmes">
+                    <h3>Résolution de problèmes</h3>
+                    <p>Approche analytique et créative</p>
+                </div>
+                <div class="swiper-slide">
+                    <img src="./images/time.png" alt="Gestion du temps">
+                    <h3>Gestion du temps</h3>
+                    <p>Organisation efficace des priorités</p>
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </section>
+
+    <!-- Section Hard Skills -->
+    <section id="hard-skills">
+        <h2 class="section-title">Hard Skills</h2>
+        <div class="swiper hard-skills-swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <img src="./images/web.png" alt="Développement Web">
+                    <h3>Développement Web</h3>
+                    <p>Maîtrise des technologies front-end et back-end</p>
+                </div>
+                <div class="swiper-slide">
+                    <img src="./images/mobile.png" alt="Développement Mobile">
+                    <h3>Développement Mobile</h3>
+                    <p>Conception et développement d'applications Android/iOS</p>
+                </div>
+                <div class="swiper-slide">
+                    <img src="./images/logiciel.png" alt="Développement Logiciel">
+                    <h3>Développement Logiciel</h3>
+                    <p>Programmation en C, C++, Java, Python</p>
+                </div>
+                <div class="swiper-slide">
+                    <img src="./images/bdd.png" alt="Base de données">
+                    <h3>Base de Données</h3>
+                    <p>Modélisation et gestion avec SQL et NoSQL</p>
+                </div>
+                <div class="swiper-slide">
+                    <img src="./images/admin.png" alt="Administration Système">
+                    <h3>Administration Système</h3>
+                    <p>Gestion de machines Linux</p>
+                </div>
+                <div class="swiper-slide">
+                    <img src="./images/cyber.png" alt="Cybersécurité">
+                    <h3>Cybersécurité</h3>
+                    <p>Principes de sécurité informatique et cryptographie</p>
+                </div>
+                <div class="swiper-slide">
+                    <img src="./images/ai.png" alt="Intelligence Artificielle">
+                    <h3>Intelligence Artificielle</h3>
+                    <p>Apprentissage automatique et deep learning</p>
+                </div>
+                <div class="swiper-slide">
+                    <img src="./images/devops.png" alt="DevOps">
+                    <h3>DevOps</h3>
+                    <p>conteneurisation via Docker</p>
+                </div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </section>
+
+    <!-- Section Projets -->
+    <section id="projets">
+        <h2 class="section-title">Projets Réalisés</h2>
+            <div class="project-info">
+                <h3>Moteur 3D</h3>
+                <p>Une application 3D sur python pour lire les fichiers 3D .obj</p>
+                <p class="explication">Ce projet a été réalisé sur python en utilisant seulement les librairies math et tkinter mais toutes les gestions de vecteurs a été faite à la main. Dans l'état actuel, le programme peut lire les fichiers .obj composé de triangles et la lumière sort de la camera. Ce projet m'a permis d'approfondir mes connaissances sur les matrices et les vecteurs.</p>
+                <a href="#" class="project-link">Lire plus</a>
+            </div>
+        
+            <div class="project-info">
+                <h3>Compresseur de vidéos</h3>
+                <p>Compresseur de vidéos MXF</p>
+                <p class="explication">Durant ma troisième année, j'ai dû faire un projet pour un BTS d'audio visuel, le projet consistait à créer un site web qui permet de visionner une version compressé des vidéos sur leurs serveurs. Les vidéos ont été compresser avec ffmpeg et stocké sur un disque dur, les informations des vidéos sont stockés sur une base de données.</p>
+                <a href="#" class="project-link">Lire plus</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 Axel MARRIER - Tous droits réservés</p>
+        <p>marrieraxel@gmail.com</p>
+        <div class="social-links">
+            <a href="#" class="social-link">LinkedIn</a>
+            <a href="#" class="social-link">GitHub</a>
+            <a href="#" class="social-link">Twitter</a>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        $(document).ready(function() {
+
+            const swiperLangage = new Swiper(".langages-swiper", {
+                slidesPerView : 4,
+                spaceBetween : 20,
+            });
+
+            const swiperSoft = new Swiper(".soft-skills-swiper", {
+                slidesPerView : 4,
+                spaceBetween : 20,
+            });
+
+            const swiperHard = new Swiper(".hard-skills-swiper", {
+                slidesPerView : 4,
+                spaceBetween : 20,
+            });
+
+            $(".project-info .project-link").click(function(event) {
+                event.preventDefault(); // Empêche le lien de naviguer
+                $(this).prev().slideToggle(); // Sélectionne l'élément juste avant
+            });
+
+
+        });
+    </script>
+</body>
+</html>
