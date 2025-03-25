@@ -118,7 +118,7 @@
 
         /* Sections communes */
         section {
-            padding: 5rem 10%;
+            padding: 1rem 10%;
         }
 
         .section-title {
@@ -225,8 +225,12 @@
             margin-bottom: 1rem;
         }
 
-        .project-info p.explication {
+        .project-info .explication {
             display: none;
+        }
+
+        .project-info .explication img{
+            width: 100%;
         }
 
         .project-link {
@@ -327,15 +331,15 @@
     <header>
         <img src="./images/photo.jpg" alt="Logo" class="logo">
         <div class="nav-buttons">
-            <button class="nav-button">Accueil</button>
-            <button class="nav-button">Compétences</button>
-            <button class="nav-button">Projets</button>
+            <a class="nav-button" href="#hero">Accueil</a>
+            <a class="nav-button" href="#langages">Compétences</a>
+            <a class="nav-button" href="#projets">Projets</a>
             <a href="CV_Axel_MARRIER.pdf" target="_blank" class="nav-button">CV</a>
         </div>
     </header>
 
     <!-- Section Hero -->
-    <section class="hero">
+    <section class="hero" id="hero">
         <div class="hero-content">
             <h1>Axel Marrier</h1>
             <p>Etudiant en BUT d'informatique</p>
@@ -495,16 +499,23 @@
     <section id="projets">
         <h2 class="section-title">Projets Réalisés</h2>
             <div class="project-info">
-                <h3>Moteur 3D</h3>
-                <p>Une application 3D sur python pour lire les fichiers 3D .obj</p>
-                <p class="explication">Ce projet a été réalisé sur python en utilisant seulement les librairies math et tkinter mais toutes les gestions de vecteurs a été faite à la main. Dans l'état actuel, le programme peut lire les fichiers .obj composé de triangles et la lumière sort de la camera. Ce projet m'a permis d'approfondir mes connaissances sur les matrices et les vecteurs.</p>
-                <a href="#" class="project-link">Lire plus</a>
+                    <h3>Moteur 3D</h3>
+                    <p>Une application 3D sur python pour lire les fichiers 3D .obj</p>
+                    <div class="explication">
+                        <p>Ce projet a été réalisé sur python en utilisant seulement les librairies math et tkinter mais toutes les gestions de vecteurs a été faite à la main. Dans l'état actuel, le programme peut lire les fichiers .obj composé de triangles et la lumière sort de la camera. Ce projet m'a permis d'approfondir mes connaissances sur les matrices et les vecteurs.</p>
+                        <img src="./images/render3d.jpg" alt="">
+                    </div>
+                    <a href="#" class="project-link">Lire plus</a>
+                </div>
             </div>
         
             <div class="project-info">
                 <h3>Compresseur de vidéos</h3>
                 <p>Compresseur de vidéos MXF</p>
-                <p class="explication">Durant ma troisième année, j'ai dû faire un projet pour un BTS d'audio visuel, le projet consistait à créer un site web qui permet de visionner une version compressé des vidéos sur leurs serveurs. Les vidéos ont été compresser avec ffmpeg et stocké sur un disque dur, les informations des vidéos sont stockés sur une base de données.</p>
+                <div class="explication">
+                    <p>Durant ma troisième année, j'ai dû faire un projet pour un BTS d'audio visuel, le projet consistait à créer un site web qui permet de visionner une version compressé des vidéos sur leurs serveurs. Les vidéos ont été compresser avec ffmpeg et stocké sur un disque dur, les informations des vidéos sont stockés sur une base de données.</p>
+                    <img src="./images/bts.jpg" alt="">
+                </div>
                 <a href="#" class="project-link">Lire plus</a>
             </div>
         </div>
@@ -513,11 +524,10 @@
     <!-- Footer -->
     <footer>
         <p>© 2025 Axel MARRIER - Tous droits réservés</p>
-        <p>marrieraxel@gmail.com</p>
+        <a href="mailto:marrieraxel@gmail.com">marrieraxel@gmail.com</a>
         <div class="social-links">
-            <a href="#" class="social-link">LinkedIn</a>
-            <a href="#" class="social-link">GitHub</a>
-            <a href="#" class="social-link">Twitter</a>
+            <a href="https://www.linkedin.com/in/axel-marrier-416a57263/" class="social-link">LinkedIn</a>
+            <a href="https://github.com/AxelMarrier" class="social-link">GitHub</a>
         </div>
     </footer>
 
@@ -541,8 +551,8 @@
             });
 
             $(".project-info .project-link").click(function(event) {
-                event.preventDefault(); // Empêche le lien de naviguer
-                $(this).prev().slideToggle(); // Sélectionne l'élément juste avant
+                event.preventDefault();
+                $(this).prev().slideToggle();
             });
 
 
