@@ -151,6 +151,10 @@
             margin-bottom: 4rem;
         }
 
+        .swiper:hover{
+            cursor: grab;
+        }
+
         .swiper-slide {
             background-color: var(--accent);
             border-radius: 10px;
@@ -412,6 +416,8 @@
                 </div>
             </div>
             <div class="swiper-pagination"></div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
         </div>
     </section>
 
@@ -447,6 +453,8 @@
                 </div>
             </div>
             <div class="swiper-pagination"></div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
         </div>
     </section>
 
@@ -496,6 +504,8 @@
                     <p>conteneurisation via Docker</p>
                 </div>
             <div class="swiper-pagination"></div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
         </div>
     </section>
 
@@ -542,16 +552,28 @@
             const swiperLangage = new Swiper(".langages-swiper", {
                 slidesPerView : 4,
                 spaceBetween : 20,
+                navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
             });
 
             const swiperSoft = new Swiper(".soft-skills-swiper", {
                 slidesPerView : 4,
                 spaceBetween : 20,
+                navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
             });
 
             const swiperHard = new Swiper(".hard-skills-swiper", {
                 slidesPerView : 4,
                 spaceBetween : 20,
+                navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
             });
 
             $(".project-info .project-link").click(function(event) {
